@@ -116,5 +116,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="FixedNum.h" />
+    <ClInclude Include="AABB.h" />
   </ItemGroup>
 </Project>
