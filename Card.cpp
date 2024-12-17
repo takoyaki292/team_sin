@@ -47,17 +47,5 @@ AABB Card::GetCardAABB(int cardIndex)
 			worldPos.y + cardSize_.y / 2.0f,
 		};
 	}
-
 	return aabb;
-}
-
-
-//void Card::DisableCard(int cardIndex)
-//{
-//	// インデックスが有効な場合のみ無効化
-//	if (cardIndex >= 0 && cardIndex < FixedNum::cardNum)
-//	{
-//		haveCardF_[cardIndex] = false;  // 指定されたカードを無効化
-//		
-//	}
-//}
+}	

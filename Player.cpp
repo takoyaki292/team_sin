@@ -18,9 +18,6 @@ void Player::BattleUpdate()
 {
     BattleIsAlive();
     MoveCard();
-
-    //cardConfirmed();
-
 }
 
 void Player::BattleDraw()

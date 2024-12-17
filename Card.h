@@ -12,20 +12,13 @@ public:
 	void BattleDraw();
 
 	AABB GetCardAABB(int cardIndex);
-	/// <summary>
-	/// カードを押されていた場合はfalseにする
-	/// </summary>
-	/// <param name="cardIndex"></param>
-	//void DisableCard(int cardIndex);
+	
 	/// <summary>
 	/// 自身が持っているカードのフラグ
 	/// </summary>
-	bool haveCardF_[FixedNum::cardNum];
+	bool haveCardF_[FixedNum::cardNum] = {};
 	int num[FixedNum::cardNum] = {};
 private:
-	Vector2 cardPos_[FixedNum::cardNum];
-	Vector2 cardSize_;
-
-	
-
+	Vector2 cardPos_[FixedNum::cardNum] = {};
+	Vector2 cardSize_ = {};
 };

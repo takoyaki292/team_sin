@@ -55,7 +55,5 @@ private:
     bool isTurn_ = false;
     Vector2 movePos_ = pos_;
     Vector2 moveSpeed_;
-    
 
-    
 };
