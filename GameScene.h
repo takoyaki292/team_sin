@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Card.h"
 #include "FixedNum.h"
+#include "Skill.h"
 class GameScene
 {
 public:
@@ -31,4 +32,5 @@ private:
     Player* player_ = nullptr; // Playerのポインタ
     Card* card_ = nullptr;
     FixedNum* fixedNum_ = nullptr;
+    Skill* skill_ = nullptr;
 };
