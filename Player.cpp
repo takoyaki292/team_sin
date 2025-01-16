@@ -2,6 +2,19 @@
 #include <Novice.h>
 #include "FixedNum.h"
 
+void Player::MapInitialize()
+{
+}
+
+void Player::MapUpdate()
+{
+}
+
+void Player::MapDraw()
+{
+}
+
+
 void Player::Initialize(const Vector2& pos, const Vector2& size, int hp, Vector2& hpPos, bool isAlive, bool isTurn, const Vector2& movePos,Vector2 moveSpeed, bool cardIsCollision,Vector2 skillBottomPos, Vector2 skillBottomSpeed) {
     pos_ = pos;
     size_ = size;

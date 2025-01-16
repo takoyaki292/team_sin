@@ -1,29 +1,42 @@
-﻿//#include "Map.h"
-//#include "MapScene.h"
-//#include <Novice.cpp>
-//
-//MapScene::MapScene()
-//{
-//}
-//
-//MapScene::~MapScene()
-//{
-//}
-//
-//// 初期化時にマップデータを取得
-//void MapScene::Initialize() {
-//    
-//}
-//
-//void MapScene::Update()
-//{
-//}
-//
-//void MapScene::Draw() {
-//    
-//}
-//
-//void MapScene::MapCHipCollisions()
-//{
-//}
-//
+﻿#include "MapScene.h"
+#include <Novice.h>
+void MapScene::Initialize(const int map[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX])
+{
+	for (int y = 0; y < FixedNum::mapChipSizeY; y++)
+	{
+		for (int x = 0; x < FixedNum::mapChipSizeX; x++)
+		{
+			map_[y][x] = map[y][x];
+		}
+	}
+}
+
+void MapScene::Update()
+{
+}
+
+void MapScene::Draw()
+{
+	for (int y = 0; y < FixedNum::mapChipSizeY; y++)
+	{
+		for (int x = 0; x < FixedNum::mapChipSizeX; x++)
+		{
+			if (map_[y][x] == 10)
+			{
+
+			}
+			if (map_[y][x] == 11)
+			{
+				Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
+					0.0f, WHITE, kFillModeSolid);
+			}
+			if (map_[y][x] == 12)
+			{
+				Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
+					0.0f, BLACK, kFillModeSolid);
+			}
+		}
+	}
+}
+
+
