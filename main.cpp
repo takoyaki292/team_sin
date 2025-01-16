@@ -1,7 +1,14 @@
 #include <Novice.h>
 #include "GameScene.h"
+#include "MapScene.h"
 
 const char kWindowTitle[] = "チーム制作_new";
+
+// シーンの状態を管理するためのenum class
+enum class SceneState {
+    Game,
+    //Map
+};
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     // ライブラリの初期化
@@ -11,9 +18,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     char keys[256] = { 0 };
     char preKeys[256] = { 0 };
 
-    // GameSceneを動的に確保
+    // シーンの状態を初期化
+    SceneState currentScene = SceneState::Game;
+
+    // GameSceneとMapSceneを動的に確保
     GameScene* gameScene = new GameScene();
     gameScene->Initialize();
+
+    //MapScene* mapScene = new MapScene();
+    //mapScene->Initialize();
 
     // ウィンドウの×ボタンが押されるまでループ
     while (Novice::ProcessMessage() == 0) {
@@ -24,11 +37,34 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
         memcpy(preKeys, keys, 256);
         Novice::GetHitKeyStateAll(keys);
 
-        // 更新処理
-        gameScene->Update();
+        // シーンの更新と描画
+        switch (currentScene) {
+        case SceneState::Game:
+            // 更新処理
+            gameScene->Update();
 
-        // 描画処理
-        gameScene->Draw();
+            // 描画処理
+            gameScene->Draw();
+
+            //// シーン切り替えのチェック（例：Gキーでマップシーンへ移行）
+            //if (preKeys[DIK_G] == 0 && keys[DIK_G] != 0) {
+            //    currentScene = SceneState::Map;
+            //}
+            break;
+        //case SceneState::Map:
+        //    // 更新処理
+        //    mapScene->Update();
+        //
+        //    // 描画処理
+        //    mapScene->Draw();
+        //
+        //    // シーン切り替えのチェック（例：Mキーでゲームシーンへ移行）
+        //    if (preKeys[DIK_M] == 0 && keys[DIK_M] != 0) {
+        //        currentScene = SceneState::Game;
+        //    }
+        //    break;
+
+        }
 
         // フレームの終了
         Novice::EndFrame();
@@ -39,8 +75,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
         }
     }
 
-    // GameSceneのメモリを解放
+    // メモリの解放
     delete gameScene;
+    //delete mapScene;
 
     // ライブラリの終了
     Novice::Finalize();

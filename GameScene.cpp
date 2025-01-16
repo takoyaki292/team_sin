@@ -38,9 +38,9 @@ void GameScene::Initialize()
     //スキルの初期化
     Vector2 listBottomSize = {50.f,50.f};
     bool isListBottom = false;
-    Vector2 skillBottomPos[FixedNum::skillNum];
-    Vector2 skillBottomSize[FixedNum::skillNum];
-    bool isSkillBottomFlag[FixedNum::skillNum];
+    Vector2 skillBottomPos[FixedNum::skillNum]{};
+    Vector2 skillBottomSize[FixedNum::skillNum]{};
+    bool isSkillBottomFlag[FixedNum::skillNum]{};
 
     for (int i = 0; i < fixedNum_->skillNum; i++)
     {
