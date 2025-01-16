@@ -10,4 +10,6 @@ public:
 
 private:
 	int map_[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX];
+
+	void MapCollisiion();
 };

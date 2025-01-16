@@ -35,8 +35,16 @@ void MapScene::Draw()
 				Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
 					0.0f, BLACK, kFillModeSolid);
 			}
+
+			if (map_[y][x] == 21)
+			{
+				Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
+					0.0f, GREEN, kFillModeSolid);
+			}
 		}
 	}
 }
 
-
+void MapScene::MapCollisiion()
+{
+}
