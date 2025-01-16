@@ -1,5 +1,9 @@
 ﻿#include "MapScene.h"
 #include <Novice.h>
+MapScene::~MapScene()
+{
+	delete player_;
+}
 void MapScene::Initialize(const int map[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX])
 {
 	for (int y = 0; y < FixedNum::mapChipSizeY; y++)
@@ -9,10 +13,12 @@ void MapScene::Initialize(const int map[FixedNum::mapChipSizeY][FixedNum::mapChi
 			map_[y][x] = map[y][x];
 		}
 	}
+	player_->MapInitialize();
 }
 
 void MapScene::Update()
 {
+	player_->MapUpdate();
 }
 
 void MapScene::Draw()
@@ -37,6 +43,8 @@ void MapScene::Draw()
 			}
 		}
 	}
+
+	player_->MapDraw();
 }
 
 

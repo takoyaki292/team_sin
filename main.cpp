@@ -47,6 +47,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
            // 描画処理
            mapScene->Draw();
         
+           
            // ゲームシーンに向かう
            if (preKeys[DIK_M] == 0 && keys[DIK_M] != 0) {
                currentScene = SceneState::Game;
