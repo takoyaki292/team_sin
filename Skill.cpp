@@ -37,19 +37,25 @@ void Skill::Update(Player& player)
 
 
 
-void Skill::Draw()
+void Skill::Draw(Texture* texture)
 {
 	if (!isListBottom_ )
 	{
-		Novice::DrawEllipse((int)1100.f, (int)200.f, (int)listBottomSize_.x, (int)listBottomSize_.y, 0.0f, GREEN, kFillModeSolid);
+		//Novice::DrawEllipse((int)1100.f, (int)200.f, (int)listBottomSize_.x, (int)listBottomSize_.y, 0.0f, GREEN, kFillModeSolid);
+		Novice::DrawSprite((int)1100.f, (int)200.f, texture->skill, 1, 1, 0.0f, WHITE);
 	}
 	else if (isListBottom_)
 	{
-		for (int i = 0; i < FixedNum::skillNum; i++)
-		{
-			Novice::DrawEllipse((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, (int)skillBottomSize_[i].x, (int)skillBottomSize_[i].y
-				, 0.0f, BLACK, kFillModeSolid);
-		}
+		Novice::DrawSprite((int)skillBottomPos_[0].x-(int)skillBottomSize_[0].x, (int)skillBottomPos_[0].y - (int)skillBottomSize_[0].y, texture->skillPlusTwo, 1, 1, 0.0f, WHITE);
+		Novice::DrawSprite((int)skillBottomPos_[2].x-(int)skillBottomSize_[2].x, (int)skillBottomPos_[2].y - (int)skillBottomSize_[2].y, texture->skillReversal, 1, 1, 0.0f, WHITE);
+		//Novice::DrawSprite((int)skillBottomPos_[2].x, (int)skillBottomPos_[2].y, texture->skillReversal, 1, 1, 0.0f, WHITE);
+		//for (int i = 0; i < FixedNum::skillNum; i++)
+		//{
+		//	Novice::DrawEllipse((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, (int)skillBottomSize_[i].x, (int)skillBottomSize_[i].y
+		//		, 0.0f, BLACK, kFillModeSolid);
+		//
+		//	//Novice::DrawSprite((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, texture->skills[i], 1, 1, 0.0f, WHITE);
+		//}
 	}
 }
 

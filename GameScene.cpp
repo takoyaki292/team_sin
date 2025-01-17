@@ -7,6 +7,7 @@ GameScene::GameScene()
     fixedNum_ = new FixedNum();
     card_ = new Card();
     skill_ = new Skill();
+    texture_ = new Texture;
 }
 
 GameScene::~GameScene()
@@ -16,10 +17,12 @@ GameScene::~GameScene()
     delete fixedNum_;
     delete card_;
     delete skill_;
+    delete texture_;
 }
 
-void GameScene::Initialize()
+void GameScene::Initialize(int backT)
 {   
+    backT_ = backT;
     //カードの初期化
     Vector2 cardPos[fixedNum_->cardNum]{};
     Vector2 cardSize;
@@ -54,7 +57,7 @@ void GameScene::Initialize()
     
 
     // Playerの初期化用データ
-    Vector2 playerPos = { 80.f, 80.f };
+    Vector2 playerPos = { 1050.f, 500.f };
     Vector2 playerSize = { 50.f, 100.f };
     Vector2 playerMovePos = cardPos[0];
     Vector2 hpPosition = { 400.f,550.f };
@@ -82,11 +85,12 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
-    skill_->Draw();
+    Novice::DrawSprite(0, 0, backT_, 1, 1, 0.0f, WHITE);
+    skill_->Draw(texture_);
     // Playerの描画処理
-    player_->BattleDraw();
+    player_->BattleDraw(texture_);
 
-    card_->BattleDraw();
+    card_->BattleDraw(texture_);
 
     
 }

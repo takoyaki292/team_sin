@@ -3,6 +3,7 @@
 #include "MapScene.h"
 #include "Map.h"
 #include "Texture.h"
+#include "Background.h"
 const char kWindowTitle[] = "チーム制作_new";
 
 // シーンの状態を管理するためのenum class
@@ -18,6 +19,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     // キー入力結果を受け取る箱
     char keys[256] = { 0 };
     char preKeys[256] = { 0 };
+    Background back;
 
     // シーンの状態を初期化
     SceneState currentScene = SceneState::Map;
@@ -26,11 +28,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     //texture_->InitializeTextures();
     // GameSceneとMapSceneを動的に確保
     GameScene* gameScene = new GameScene();
-    gameScene->Initialize();
+    gameScene->Initialize(back.oneGameBack);
 
     Map map;
     MapScene* mapScene = new MapScene();
-    mapScene->Initialize(map.oneMap);
+    mapScene->Initialize(map.oneMap,back.oneMapBack);
 
     // ウィンドウの×ボタンが押されるまでループ
     while (Novice::ProcessMessage() == 0) {
@@ -55,9 +57,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
            if (preKeys[DIK_M] == 0 && keys[DIK_M] != 0) {
                currentScene = SceneState::Game;
            }
+           //マップのボスを踏んだら
+           if (mapScene->isBattleF)
+           {
+               currentScene = SceneState::Game;
+               mapScene->isBattleF = false;
+           }
+
            //// 二つ目のマップに行く
            if (preKeys[DIK_G] == 0 && keys[DIK_G] != 0) {
-               mapScene->Initialize(map.twoMap);
+               mapScene->Initialize(map.twoMap,back.oneMapBack);
                currentScene = SceneState::Map;
            }
            break;
@@ -70,7 +79,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
             //// シーン切り替えのチェック（例：Gキーでマップシーンへ移行）
             if (preKeys[DIK_G] == 0 && keys[DIK_G] != 0) {
-                mapScene->Initialize(map.twoMap);
+                mapScene->Initialize(map.twoMap,back.oneMapBack);
                 currentScene = SceneState::Map;
             }
             break;

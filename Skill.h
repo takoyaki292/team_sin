@@ -2,6 +2,7 @@
 #include "Vector2.h"
 #include "FixedNum.h"
 #include "Player.h"
+#include "Texture.h"
 class Skill
 {
 public:
@@ -11,7 +12,7 @@ public:
 	void Initialize(const Vector2& listBottomPos, const Vector2& listBottomSize, bool isListBottom
 	,Vector2 skillBottomPos[FixedNum::skillNum],Vector2 skillBottomSize[FixedNum::skillNum],bool isSkillBottomFlag[FixedNum::skillNum]);
 	void Update(Player& player);
-	void Draw();
+	void Draw(Texture* texture);
 
 	AABB GetSkillAABB(int skillIndex);
 

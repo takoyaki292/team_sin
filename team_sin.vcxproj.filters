@@ -134,5 +134,6 @@
     <ClInclude Include="MapScene.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Background.h" />
   </ItemGroup>
 </Project>

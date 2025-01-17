@@ -2,6 +2,7 @@
 #include "Vector2.h"
 #include "FixedNum.h"
 #include "AABB.h"
+#include "Texture.h"
 class Card
 {
 public:
@@ -9,7 +10,7 @@ public:
 	//~Card();
 	void Initialize(Vector2 cardPos[FixedNum::cardNum], Vector2 cardSize,bool haveCardF[FixedNum::cardNum]);
 	void BattleUpdate();
-	void BattleDraw();
+	void BattleDraw(Texture* texture);
 
 	AABB GetCardAABB(int cardIndex);
 	

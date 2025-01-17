@@ -4,7 +4,6 @@
 
 void Player::MapInitialize()
 {
-    //texture_ = texture;
 }
 
 void Player::MapUpdate()
@@ -46,7 +45,7 @@ void Player::BattleUpdate()
 }
 
 
-void Player::BattleDraw()
+void Player::BattleDraw(Texture* texture)
 {
     if (isAlive_) {
         Novice::DrawBox((int)hpPos_.x, (int)hpPos_.y, hp_ * 60, 30, 0.0f, RED, kFillModeSolid);
@@ -55,11 +54,13 @@ void Player::BattleDraw()
             Novice::DrawEllipse((int)skillBottonPos_.x, (int)skillBottonPos_.y, 50, 50, 0.0f, GREEN, kFillModeWireFrame);
         }
         else {
-            Novice::DrawBox((int)movePos_.x, (int)movePos_.y, 50, 100, 0.0f, GREEN, kFillModeWireFrame);
+            Novice::DrawBox((int)movePos_.x, (int)movePos_.y, 82, 112, 0.0f, BLACK, kFillModeWireFrame);
         }
         
+        Novice::DrawSprite((int)pos_.x, (int)pos_.y, texture->player, 1, 1, 0.0f, WHITE);
     }
-    Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
+    
+    //Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
 }
 
 void Player::BattleIsAlive()

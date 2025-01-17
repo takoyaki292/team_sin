@@ -11,7 +11,7 @@ public:
     GameScene();
     ~GameScene();
 
-    void Initialize();
+    void Initialize(int backT);
     void Update();
     void Draw();
 
@@ -35,5 +35,8 @@ private:
     Card* card_ = nullptr;
     FixedNum* fixedNum_ = nullptr;
     Skill* skill_ = nullptr;
+    Texture* texture_=nullptr;
     //Texture texture;
+
+    int backT_;
 };
