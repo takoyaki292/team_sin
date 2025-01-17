@@ -1,8 +1,18 @@
 ﻿#include "MapScene.h"
 #include <Novice.h>
+#include "Texture.h"
+
+
+MapScene::MapScene()
+{
+	player_ = new Player;
+	texture_ = new Texture;
+}
+
 MapScene::~MapScene()
 {
 	delete player_;
+	delete texture_;
 }
 void MapScene::Initialize(const int map[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX])
 {
@@ -33,8 +43,10 @@ void MapScene::Draw()
 			}
 			if (map_[y][x] == 11)
 			{
-				Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
-					0.0f, WHITE, kFillModeSolid);
+				//Novice::DrawBox(x * FixedNum::chipSize, y * FixedNum::chipSize, FixedNum::chipSize, FixedNum::chipSize,
+				//	0.0f, WHITE, kFillModeSolid);
+
+				Novice::DrawSprite(x * FixedNum::chipSize, y * FixedNum::chipSize, texture_->map11, 1, 1, 0.0f, WHITE);
 			}
 			if (map_[y][x] == 12)
 			{
@@ -43,8 +55,7 @@ void MapScene::Draw()
 			}
 		}
 	}
-
-	player_->MapDraw();
+	player_->MapDraw(texture_);
 }
 
 

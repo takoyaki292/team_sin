@@ -2,6 +2,7 @@
 #include "Vector2.h"
 #include "AABB.h"
 #include "Card.h"
+#include "Texture.h"
 class Player
 {
 ///マップシーンの関数や変数
@@ -19,9 +20,9 @@ public:
     /// <summary>
     /// マップシーンの描画処理
     /// </summary>
-    void MapDraw();
+    void MapDraw(Texture* texture);
 private:
-
+    
 
 
 //戦闘シーンの関数や変数

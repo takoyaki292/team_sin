@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "MapScene.h"
 #include "Map.h"
+#include "Texture.h"
 const char kWindowTitle[] = "チーム制作_new";
 
 // シーンの状態を管理するためのenum class
@@ -21,6 +22,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     // シーンの状態を初期化
     SceneState currentScene = SceneState::Map;
 
+    //Texture* texture_ =new Texture;
+    //texture_->InitializeTextures();
     // GameSceneとMapSceneを動的に確保
     GameScene* gameScene = new GameScene();
     gameScene->Initialize();
@@ -87,6 +90,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     // メモリの解放
     delete gameScene;
     delete mapScene;
+    
 
     // ライブラリの終了
     Novice::Finalize();

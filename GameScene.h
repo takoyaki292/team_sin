@@ -3,6 +3,8 @@
 #include "Card.h"
 #include "FixedNum.h"
 #include "Skill.h"
+#include "Texture.h"
+
 class GameScene
 {
 public:
@@ -33,4 +35,5 @@ private:
     Card* card_ = nullptr;
     FixedNum* fixedNum_ = nullptr;
     Skill* skill_ = nullptr;
+    //Texture texture;
 };

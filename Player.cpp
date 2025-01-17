@@ -4,14 +4,16 @@
 
 void Player::MapInitialize()
 {
+    //texture_ = texture;
 }
 
 void Player::MapUpdate()
 {
 }
 
-void Player::MapDraw()
+void Player::MapDraw(Texture* texture)
 {
+    Novice::DrawSprite(50, 50,texture->player, 1, 1, 0.0f, WHITE);
 }
 
 
