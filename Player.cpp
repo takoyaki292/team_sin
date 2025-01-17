@@ -51,7 +51,7 @@ void Player::BattleDraw(Texture* texture)
         Novice::DrawBox((int)hpPos_.x, (int)hpPos_.y, hp_ * 60, 30, 0.0f, RED, kFillModeSolid);
 
         if (isSkillBottom()) {
-            Novice::DrawEllipse((int)skillBottonPos_.x, (int)skillBottonPos_.y, 50, 50, 0.0f, GREEN, kFillModeWireFrame);
+            Novice::DrawEllipse((int)skillBottonPos_.x, (int)skillBottonPos_.y, 50, 50, 0.0f, BLACK, kFillModeWireFrame);
         }
         else {
             Novice::DrawBox((int)movePos_.x, (int)movePos_.y, 82, 112, 0.0f, BLACK, kFillModeWireFrame);
