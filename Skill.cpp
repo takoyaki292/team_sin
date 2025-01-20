@@ -11,7 +11,7 @@ Skill::~Skill()
 {
 }
 
-void Skill::Initialize(const Vector2& listBottomPos, const Vector2& listBottomSize, bool isListBottom, Vector2 skillBottomPos[FixedNum::skillNum], Vector2 skillBottomSize[FixedNum::skillNum], bool isSkillBottomFlag[FixedNum::skillNum])
+void Skill::Initialize(const Vector2& listBottomPos, const Vector2& listBottomSize, bool isListBottom, Vector2 skillBottomPos[FixedNum::skillNum], Vector2 skillBottomSize[FixedNum::skillNum], bool isSkillBottomFlag[FixedNum::skillNum],Vector2 skillEffect[FixedNum::skillNum], bool isHaveSkill[FixedNum::skillNum])
 {
 	listBottomPos_ = listBottomPos;
 	listBottomSize_ = listBottomSize;
@@ -22,6 +22,8 @@ void Skill::Initialize(const Vector2& listBottomPos, const Vector2& listBottomSi
 		skillBottomPos_[i] = skillBottomPos[i];
 		skillBottomSize_[i] = skillBottomSize[i];
 		isSkillBottomFlag_[i] = isSkillBottomFlag[i];
+		skillEffect_[i] = skillEffect[i];
+		isSkillHave_[i] = isHaveSkill[i];
 	}
 }
 
@@ -46,16 +48,29 @@ void Skill::Draw(Texture* texture)
 	}
 	else if (isListBottom_)
 	{
-		Novice::DrawSprite((int)skillBottomPos_[0].x-(int)skillBottomSize_[0].x, (int)skillBottomPos_[0].y - (int)skillBottomSize_[0].y, texture->skillPlusTwo, 1, 1, 0.0f, WHITE);
-		Novice::DrawSprite((int)skillBottomPos_[2].x-(int)skillBottomSize_[2].x, (int)skillBottomPos_[2].y - (int)skillBottomSize_[2].y, texture->skillReversal, 1, 1, 0.0f, WHITE);
+		
+		//Novice::DrawSprite(0, 0, backT, 1, 1, 0.0f, WHITE);
+		
+		
 		//Novice::DrawSprite((int)skillBottomPos_[2].x, (int)skillBottomPos_[2].y, texture->skillReversal, 1, 1, 0.0f, WHITE);
-		//for (int i = 0; i < FixedNum::skillNum; i++)
-		//{
-		//	Novice::DrawEllipse((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, (int)skillBottomSize_[i].x, (int)skillBottomSize_[i].y
-		//		, 0.0f, BLACK, kFillModeSolid);
-		//
-		//	//Novice::DrawSprite((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, texture->skills[i], 1, 1, 0.0f, WHITE);
-		//}
+		for (int i = 0; i < FixedNum::skillNum; i++)
+		{
+			//Novice::DrawEllipse((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, (int)skillBottomSize_[i].x, (int)skillBottomSize_[i].y
+			//	, 0.0f, BLACK, kFillModeSolid);
+			//
+			//Novice::DrawSprite((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, texture->skills[i], 1, 1, 0.0f, WHITE);
+			if (isSkillHave_[i])
+			{
+				Novice::DrawSprite((int)skillBottomPos_[0].x - (int)skillBottomSize_[0].x, (int)skillBottomPos_[0].y - (int)skillBottomSize_[0].y, texture->skillPlusTwo, 1, 1, 0.0f, WHITE);
+				Novice::DrawSprite((int)skillBottomPos_[2].x - (int)skillBottomSize_[2].x, (int)skillBottomPos_[2].y - (int)skillBottomSize_[2].y, texture->skillReversal, 1, 1, 0.0f, WHITE);
+			}
+			else
+			{
+				Novice::DrawEllipse((int)skillBottomPos_[i].x, (int)skillBottomPos_[i].y, (int)skillBottomSize_->x, (int)skillBottomSize_->y, 0.0f, BLACK, kFillModeSolid);
+			}
+			
+			Novice::DrawBox((int)skillEffect_[i].x, (int)skillEffect_[i].y, (int)skillBottomSize_[i].x, (int)skillBottomSize_[i].y, 0.0f, BLACK, kFillModeSolid);
+		}
 	}
 }
 
@@ -116,7 +131,7 @@ void Skill::BattleRandomNum(Card& cardInstance)
 		{
 			if (numIndex < availableNums.size()) // 範囲外アクセスを防止
 			{
-				// cardInstance.num はおそらく配列なので、インデックスに基づいて値を設定
+				
 				cardInstance.num[i] = availableNums[numIndex];
 				numIndex++;
 			}

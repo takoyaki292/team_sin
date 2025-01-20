@@ -19,6 +19,9 @@ public:
 	/// </summary>
 	bool haveCardF_[FixedNum::cardNum] = {};
 	int num[FixedNum::cardNum] = {};
+
+	int GetOwnedCardCount() const;
+
 private:
 	Vector2 cardPos_[FixedNum::cardNum] = {};
 	Vector2 cardSize_ = {};

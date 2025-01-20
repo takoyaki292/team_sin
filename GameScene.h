@@ -4,6 +4,7 @@
 #include "FixedNum.h"
 #include "Skill.h"
 #include "Texture.h"
+#include "Boss.h"
 
 class GameScene
 {
@@ -11,10 +12,11 @@ public:
     GameScene();
     ~GameScene();
 
+    //void Initialize();
     void Initialize(int backT);
     void Update();
     void Draw();
-
+    
     /// <summary>
     /// AABB型の当たり判定の関数
     /// </summary>
@@ -36,7 +38,7 @@ private:
     FixedNum* fixedNum_ = nullptr;
     Skill* skill_ = nullptr;
     Texture* texture_=nullptr;
-    //Texture texture;
+    Boss* boss_ = nullptr;
 
     int backT_;
 };

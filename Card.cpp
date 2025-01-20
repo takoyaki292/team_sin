@@ -50,4 +50,15 @@ AABB Card::GetCardAABB(int cardIndex)
 		};
 	}
 	return aabb;
-}	
+}
+
+
+int Card::GetOwnedCardCount() const {
+	int count = 0;
+	for (int i = 0; i < FixedNum::cardNum; i++) {
+		if (haveCardF_[i]) {
+			count++;
+		}
+	}
+	return count;
+}

@@ -28,7 +28,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     //texture_->InitializeTextures();
     // GameSceneとMapSceneを動的に確保
     GameScene* gameScene = new GameScene();
-    gameScene->Initialize(back.oneGameBack);
+    gameScene->Initialize(back.skillBack);
 
     Map map;
     MapScene* mapScene = new MapScene();

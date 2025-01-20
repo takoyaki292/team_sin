@@ -8,6 +8,7 @@ GameScene::GameScene()
     card_ = new Card();
     skill_ = new Skill();
     texture_ = new Texture;
+    boss_ = new Boss;
 }
 
 GameScene::~GameScene()
@@ -18,6 +19,7 @@ GameScene::~GameScene()
     delete card_;
     delete skill_;
     delete texture_;
+    delete boss_;
 }
 
 void GameScene::Initialize(int backT)
@@ -44,16 +46,20 @@ void GameScene::Initialize(int backT)
     Vector2 skillBottomPos[FixedNum::skillNum]{};
     Vector2 skillBottomSize[FixedNum::skillNum]{};
     bool isSkillBottomFlag[FixedNum::skillNum]{};
-
+    Vector2 skillEffect[FixedNum::skillNum]{};
+    bool isHaveSkill[FixedNum::skillNum]{};
     for (int i = 0; i < fixedNum_->skillNum; i++)
     {
         skillBottomPos[i] = { i * 300.f+300.f,100.f };
         skillBottomSize[i] = { 50.f,50.f };
         isSkillBottomFlag[i] = false;
+        skillEffect[i] = { i * 300.f+300.f,300.f };
+        isHaveSkill[i] = true;
     }
     Vector2 listBottomPos = skillBottomPos[0];
     Vector2 listBottomSpeed = {300.f,300.f};
-    skill_->Initialize(listBottomPos, listBottomSize, isListBottom, skillBottomPos, skillBottomSize, isSkillBottomFlag);
+   
+    skill_->Initialize(listBottomPos, listBottomSize, isListBottom, skillBottomPos, skillBottomSize, isSkillBottomFlag,skillEffect,isHaveSkill);
     
 
     // Playerの初期化用データ
@@ -70,6 +76,16 @@ void GameScene::Initialize(int backT)
     //Vector2 
     // player_の初期化
     player_->Initialize(playerPos, playerSize, playerHp, hpPosition, plyaerIsAlive, playerIsTurn, playerMovePos, playerCardMoveSpeed, cardIsCollision, listBottomPos, listBottomSpeed);
+
+    Vector2 bossPos = {100.f,50.f};
+    Vector2 bossSize = { 200.f,200.f };
+    bool isBossTrue = false;
+    int attck=0;
+    int hp = 10;
+    Vector2 hpPos = { 400.f,200.f };
+    int bossRandomAttck[FixedNum::haveCard] = { 1,3,5 };
+    bool bossIsAlive=true;
+    boss_->Initialize(bossPos,bossSize,isBossTrue,attck,hp,hpPos, bossRandomAttck,bossIsAlive);
 }
 
     
@@ -81,18 +97,24 @@ void GameScene::Update()
 
     ChecAllCollisiions();
 
+    if (player_->attck_ != 0)
+    {
+        boss_->AttckRandom();
+        player_->attck_ = 0;
+    }
+
 }
 
 void GameScene::Draw()
 {
-    Novice::DrawSprite(0, 0, backT_, 1, 1, 0.0f, WHITE);
+    //Novice::DrawSprite(0, 0, backT_, 1, 1, 0.0f, WHITE);
     skill_->Draw(texture_);
     // Playerの描画処理
     player_->BattleDraw(texture_);
 
     card_->BattleDraw(texture_);
 
-    
+    boss_->Draw(texture_->oneBoss);
 }
 
 bool GameScene::IsCollision(AABB aabb1, AABB aabb2)

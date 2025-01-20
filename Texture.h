@@ -15,7 +15,7 @@ public:
     int mapBoss;
     int mapCard;
     
-
+    int oneBoss;
     // コンストラクタでテクスチャを初期化
     Texture() {
         // プレイヤーのテクスチャをロード
@@ -39,6 +39,8 @@ public:
         map11 = Novice::LoadTexture("./Resources/images/mapChip/block01.png");
         mapBoss = Novice::LoadTexture("./Resources/images/mapChip/bosMapChip.png");
         mapCard = Novice::LoadTexture("./Resources/images/mapChip/card01.png");
+
+        oneBoss = Novice::LoadTexture("./Resources/images/enemy/oneBoss.png");
     }
 
     

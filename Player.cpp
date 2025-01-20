@@ -58,9 +58,14 @@ void Player::BattleDraw(Texture* texture)
         }
         
         Novice::DrawSprite((int)pos_.x, (int)pos_.y, texture->player, 1, 1, 0.0f, WHITE);
+
+        if (attck_ != 0)
+        {
+            Novice::DrawSprite((int)600.f, (int)400.f, texture->cards[attck_-1], 1, 1, 0.0f, WHITE);
+        }
     }
     
-    //Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
+    Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
 }
 
 void Player::BattleIsAlive()
