@@ -20,6 +20,7 @@ void Boss::Initialize(Vector2 pos, Vector2 size, bool isTrue, int attck, int hp,
 void Boss::Update()
 {
 }
+
 void Boss::Draw(int bossTexture)
 {
 	if (isAlive_)
