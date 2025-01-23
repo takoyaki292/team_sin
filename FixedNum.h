@@ -20,4 +20,8 @@ public:
     static constexpr int mapChipSizeY = 12;
 
     static constexpr int mapCard = 3;
+
+
+    //持っているカードの最大個数
+    static constexpr int haveCard = 3;
 };

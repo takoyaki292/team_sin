@@ -4,6 +4,7 @@
 #include "FixedNum.h"
 #include "Skill.h"
 #include "Texture.h"
+#include "Boss.h"
 
 class GameScene
 {
@@ -37,6 +38,6 @@ private:
     Skill* skill_ = nullptr;
     Texture* texture_=nullptr;
     //Texture texture;
-
+    Boss* boss = nullptr;
     int backT_;
 };
