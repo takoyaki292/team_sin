@@ -9,7 +9,7 @@ GameScene::GameScene()
     skill_ = new Skill();
     texture_ = new Texture;
     boss = new Boss();
-    backT_;
+    backT_ = 0;
 }
 
 GameScene::~GameScene()
