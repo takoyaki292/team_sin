@@ -37,6 +37,7 @@ void Boss::Draw(int bossTexture)
 			}
 
 
+
 		}
 
 		Novice::ScreenPrintf(1000, 100, "attck:%d", attck_);
