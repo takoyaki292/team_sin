@@ -21,6 +21,7 @@ void Boss::Update()
 {
 
 
+
 }
 
 void Boss::Draw(int bossTexture)
