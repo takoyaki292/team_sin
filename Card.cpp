@@ -19,13 +19,15 @@ void Card::BattleUpdate()
 {
 }
 
-void Card::BattleDraw()
+void Card::BattleDraw(Texture* texture)
 {
 	for (int i = 0; i < FixedNum::cardNum; i++)
 	{
 		if (haveCardF_[i])
 		{
 			Novice::DrawBox((int)cardPos_[i].x, (int)cardPos_[i].y, 50, 100, 0.0f, BLACK, kFillModeSolid);
+
+			Novice::DrawSprite((int)cardPos_[i].x, (int)cardPos_[i].y , texture->cards[i], 1, 1, 0.0f, WHITE);
 		}
 		Novice::ScreenPrintf(0, i * 50, "%d:num[%d]",i, num[i]);
 		
@@ -48,4 +50,15 @@ AABB Card::GetCardAABB(int cardIndex)
 		};
 	}
 	return aabb;
-}	
+}
+
+
+int Card::GetOwnedCardCount() const {
+	int count = 0;
+	for (int i = 0; i < FixedNum::cardNum; i++) {
+		if (haveCardF_[i]) {
+			count++;
+		}
+	}
+	return count;
+}
