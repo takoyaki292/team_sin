@@ -2,6 +2,20 @@
 #include <Novice.h>
 #include "FixedNum.h"
 
+void Player::MapInitialize()
+{
+}
+
+void Player::MapUpdate()
+{
+}
+
+void Player::MapDraw(Texture* texture)
+{
+    Novice::DrawSprite(50, 50,texture->player, 1, 1, 0.0f, WHITE);
+}
+
+
 void Player::Initialize(const Vector2& pos, const Vector2& size, int hp, Vector2& hpPos, bool isAlive, bool isTurn, const Vector2& movePos,Vector2 moveSpeed, bool cardIsCollision,Vector2 skillBottomPos, Vector2 skillBottomSpeed) {
     pos_ = pos;
     size_ = size;
@@ -31,7 +45,7 @@ void Player::BattleUpdate()
 }
 
 
-void Player::BattleDraw()
+void Player::BattleDraw(Texture* texture)
 {
     if (isAlive_) {
         Novice::DrawBox((int)hpPos_.x, (int)hpPos_.y, hp_ * 60, 30, 0.0f, RED, kFillModeSolid);
@@ -40,11 +54,13 @@ void Player::BattleDraw()
             Novice::DrawEllipse((int)skillBottonPos_.x, (int)skillBottonPos_.y, 50, 50, 0.0f, GREEN, kFillModeWireFrame);
         }
         else {
-            Novice::DrawBox((int)movePos_.x, (int)movePos_.y, 50, 100, 0.0f, GREEN, kFillModeWireFrame);
+            Novice::DrawBox((int)movePos_.x, (int)movePos_.y, 82, 112, 0.0f, BLACK, kFillModeWireFrame);
         }
         
+        Novice::DrawSprite((int)pos_.x, (int)pos_.y, texture->player, 1, 1, 0.0f, WHITE);
     }
-    Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
+    
+    //Novice::ScreenPrintf(300, 0, "attck:%d", attck_);
 }
 
 void Player::BattleIsAlive()

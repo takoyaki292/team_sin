@@ -1,25 +1,23 @@
-﻿//#pragma once
-//#include "FixedNum.h"
-//
-//class MapScene {
-//public:
-//    // コンストラクタとデストラクタ
-//    MapScene();
-//    ~MapScene();
-//
-//    // 初期化関数
-//    void Initialize();
-//
-//    // 更新関数
-//    void Update();
-//
-//    // 描画関数
-//    void Draw();
-//
-//private:
-//    // マップチップの当たり判定を行う関数
-//    void MapCHipCollisions();
-//
-//    
-//};
-//
+﻿#pragma once
+#include "FixedNum.h"
+#include "Player.h"
+#include "Texture.h"
+class MapScene
+{
+public:
+    MapScene();
+    ~MapScene();
+    void Initialize(const int map[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX],int backT);
+    void Update();
+    void Draw();
+
+    bool isBattleF = false;
+private:
+    int map_[FixedNum::mapChipSizeY][FixedNum::mapChipSizeX];
+    Player* player_;
+    Texture* texture_;
+    
+    void MapCollisiion();
+
+    int backT_;
+};

@@ -2,12 +2,34 @@
 #include "Vector2.h"
 #include "AABB.h"
 #include "Card.h"
+#include "Texture.h"
 class Player
 {
+///マップシーンの関数や変数
+public:
+    /// <summary>
+    /// マップシーンの初期化
+    /// </summary>
+    void MapInitialize();
+
+    /// <summary>
+    /// マップシーンの更新処理
+    /// </summary>
+    void MapUpdate();
+
+    /// <summary>
+    /// マップシーンの描画処理
+    /// </summary>
+    void MapDraw(Texture* texture);
+private:
+
+
+
+//戦闘シーンの関数や変数
 public:
     void Initialize(const Vector2& pos, const Vector2& size, int hp,Vector2& hpPos, bool isAlive, bool isTurn, const Vector2& movePos, Vector2 moveSpeed,bool cardIsCollision,Vector2 skillBottomPos,Vector2 skillBottomSpeed);
     void BattleUpdate();
-    void BattleDraw();
+    void BattleDraw(Texture* texture);
     /// <summary>
     /// 戦闘シーンで生きているかの関数
     /// </summary>
@@ -84,6 +106,4 @@ private:
 
     Vector2 skillBottonPos_;
     Vector2 skillBottomSpeed_;
-
-    
 };
