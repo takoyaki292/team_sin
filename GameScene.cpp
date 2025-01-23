@@ -104,7 +104,7 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
-    Novice::DrawSprite(0, 0, backT_, 1, 1, 0.0f, WHITE);
+    //Novice::DrawSprite(0, 0, backT_, 1, 1, 0.0f, WHITE);
     skill_->Draw(texture_);
     // Playerの描画処理
     player_->BattleDraw(texture_);
