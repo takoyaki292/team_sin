@@ -35,9 +35,6 @@ void Boss::Draw(int bossTexture)
 			{
 				//mNovice::DrawSprite(200,100+i*50, cardT[randomAttck_[i]], 1, 1, 0.0f, WHITE);
 			}
-
-
-
 		}
 
 		Novice::ScreenPrintf(1000, 100, "attck:%d", attck_);
