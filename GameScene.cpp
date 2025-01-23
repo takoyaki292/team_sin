@@ -83,6 +83,8 @@ void GameScene::Initialize(int backT)
     int bossRandomAttck[FixedNum::haveCard] = { 1,3,5 };
     bool bossIsAlive = true;
     boss->Initialize(bossPos, bossSize, isBossTrue, attck, hp, hpPos, bossRandomAttck, bossIsAlive);
+
+    //judeg_
 }
 
     
@@ -111,7 +113,7 @@ void GameScene::Draw()
 
     card_->BattleDraw(texture_);
 
-    boss->Draw(texture_->oneBoss);
+    boss->Draw(texture_->oneBoss,texture_->cards);
 }
 
 bool GameScene::IsCollision(AABB aabb1, AABB aabb2)

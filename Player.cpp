@@ -48,7 +48,7 @@ void Player::BattleUpdate()
 void Player::BattleDraw(Texture* texture)
 {
     if (isAlive_) {
-        Novice::DrawBox((int)hpPos_.x, (int)hpPos_.y, hp_ * 60, 30, 0.0f, RED, kFillModeSolid);
+        
 
         if (isSkillBottom()) {
             Novice::DrawEllipse((int)skillBottonPos_.x, (int)skillBottonPos_.y, 50, 50, 0.0f, GREEN, kFillModeWireFrame);

@@ -5,7 +5,8 @@
 #include "Skill.h"
 #include "Texture.h"
 #include "Boss.h"
-
+#include "Judge.h"
+#include "Vector2.h"
 class GameScene
 {
 public:
@@ -40,4 +41,5 @@ private:
     //Texture texture;
     Boss* boss = nullptr;
     int backT_;
+    Judge* judeg_=nullptr;
 };

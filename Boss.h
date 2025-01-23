@@ -8,7 +8,7 @@ class Boss {
 public:
     void Initialize(Vector2 pos, Vector2 size, bool isTrue, int attck, int hp, Vector2 hpPos, int randomAttck[FixedNum::haveCard], bool isAlive);
     void Update();
-    void Draw(int bossTexture);
+    void Draw(int bossTexture, int cardT[FixedNum::cardNum]);
     void AttckRandom();
 
 private:

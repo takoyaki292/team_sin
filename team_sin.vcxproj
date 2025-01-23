@@ -112,6 +112,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Judge.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapScene.cpp" />
@@ -153,6 +154,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="Card.h" />
     <ClInclude Include="FixedNum.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Judge.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapScene.h" />
     <ClInclude Include="Player.h" />

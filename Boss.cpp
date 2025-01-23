@@ -22,19 +22,20 @@ void Boss::Update()
 
 }
 
-void Boss::Draw(int bossTexture)
+void Boss::Draw(int bossTexture,int cardT[FixedNum::cardNum])
 {
 	if (isAlive_)
 	{
 		Novice::DrawSprite((int)pos_.x, (int)pos_.y, bossTexture, 1, 1, 0.0f, WHITE);
 
-		Novice::DrawBox((int)hpPos_.x, (int)hpPos_.y, hp_ * 60, 30, 0.0f, RED, kFillModeSolid);
+		
 
 		for (int i = 0; i < FixedNum::cardNum; i++)
 		{
 			if (randomAttck_[i] != 0)
 			{
-				//mNovice::DrawSprite(200,100+i*50, cardT[randomAttck_[i]], 1, 1, 0.0f, WHITE);
+				cardT[i];
+				//Novice::DrawSprite(200,100+i*50, cardT[randomAttck_[i], 1, 1, 0.0f, WHITE);
 			}
 		}
 
