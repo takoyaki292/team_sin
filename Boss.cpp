@@ -23,6 +23,7 @@ void Boss::Update()
 }
 
 
+
 void Boss::Draw(int bossTexture)
 {
 	if (isAlive_)
